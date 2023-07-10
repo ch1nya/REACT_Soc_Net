@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "./App.css"
-import Profile from "./Components/Profile/Profile";
+import Profile from "./Components/Profile/ProfileItSelf/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 import Header from "./Components/Header/Header";
 import Dialogs from "./Components/Dialogs/Header/Dialogs";
@@ -21,7 +21,7 @@ const App = () => {
                 {/* <Dialogs /> */}
                     <Routes>
                         <Route  path='/profile' element={<Profile />}/>
-                        <Route path='/messages'  element={<Dialogs />}/>
+                        <Route path='/messages/*'  element={<Dialogs />}/>
                     </Routes>
                     {/* <Profile /> */
                     /* <Dialogs /> */}

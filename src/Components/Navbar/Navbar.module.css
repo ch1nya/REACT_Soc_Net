@@ -1,10 +1,19 @@
 .nav {
     grid-area: n;
-    background-color: rgb(154, 85, 162);
+    /* background-color: rgb(154, 85, 162); */
+    background-color: #383a45;
+    background-image: linear-gradient(135deg, #4f5261 0%, #383a45 50%);
     }
-.item {
+.item{
     color:white;
     list-style-type: none;
+}
+
+.item a{
+    color: beige;
+}
+.item a.active{
+    color: rgb(224, 178, 235);
 }
  
     
