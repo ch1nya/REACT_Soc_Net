@@ -3,3 +3,10 @@
     grid-area: c;
     background-color: rgb(178, 123, 228);
     }
+.postBlock {
+    padding: 1rem;
+}
+
+.posts {
+    margin-top: 1rem;
+}

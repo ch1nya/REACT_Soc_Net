@@ -4,11 +4,18 @@ import s from "./MyPosts.module.css"
 
 const MyPosts = (props) => {
     return  (
-    <div>
+    <div className={s.postBlock}>
+        <h3>My posts</h3>
         <div>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <button>Add post</button>
-            <button>Remove button</button>
+            <div>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <button>Add post</button>
+            </div>
+            <div>
+                <button>Remove button</button>
+            </div>
         </div>
         <div className={s.posts}>    
             <Post message ='First post...........First post.....First post'/>
