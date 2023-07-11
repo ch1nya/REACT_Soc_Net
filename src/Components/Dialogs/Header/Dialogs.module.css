@@ -7,6 +7,12 @@
     padding: 10px;
 }
 
+.messages {
+    padding: 10px;
+    font-style: italic;
+    font-size: 1.02rem;
+}
+
 .dialogsItems .active {
     color: rgb(34, 6, 37);
     font-size: 1.1rem;
