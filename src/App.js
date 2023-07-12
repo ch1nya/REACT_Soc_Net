@@ -4,27 +4,29 @@ import "./App.css"
 import Profile from "./Components/Profile/ProfileItSelf/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 import Header from "./Components/Header/Header";
-import Dialogs from "./Components/Dialogs/Header/Dialogs";
+import Dialogs from "./Components/Dialogs/Dialogs";
 
 
 
-const App = () => {
+  
+
+const App = (props) => {
+    
     return (
         <Router>
             <div className='app-wrapper'>
                 <Header />          
 
                 <Navbar />
-
                 
                 <div className='app-wrapper-content'>
-                {/* <Dialogs /> */}
                     <Routes>
-                        <Route  path='/profile' element={<Profile />}/>
-                        <Route path='/messages/*'  element={<Dialogs />}/>
+                        {/* <Route  path='/profile' element={<Profile />}/>
+                        <Route path='/messages/*'  element={<Dialogs />}/> */}
+
+                        <Route  path='/profile' render={() => <Profile posts={props.posts} />}/>
+                        <Route path='/messages/*' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
                     </Routes>
-                    {/* <Profile /> */
-                    /* <Dialogs /> */}
                 </div>
 
             </div>

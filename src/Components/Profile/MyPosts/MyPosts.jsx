@@ -1,16 +1,15 @@
-import React,{ useRef } from "react";
-import Post from '../Post/Post.jsx'
+import React from "react";
 import s from "./MyPosts.module.css"
+import Post from "../Post/Post";
 
-let posts = [
-    {id: 1, post:'First post...........First post.....First post', likesCount:12   }, 
-    {id: 2, post:'Second post/////////..........Second post', likesCount:101   }, 
-    {id: 3, post:'Third post..........Third post.........Third post', likesCount:3  },
-]
 
-let postsElements = posts.map((p)=> ( <Post message={p.post} likesCount={p.likesCount} />))
+
+
 
 const MyPosts = (props) => {
+    
+    let postsElements = props.posts.map((p)=> ( <Post message={p.post} likesCount={p.likesCount} />))
+
     return  (
     <div className={s.postBlock}>
         <h3>My posts</h3>
