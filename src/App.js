@@ -8,22 +8,18 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 
 
 
-debugger; 
 
 const App = (props) => {
     
-    
+   
     return (
         <Router>
             <div className='app-wrapper'>
                 <Header />          
-
-                <Navbar friendList = {props.state.sidebar.friendList}/>
+                <Navbar friendList={props.state.sidebar.friendList}/>
                 
                 <div className='app-wrapper-content'>
                     <Routes>
-                        {/* <Route  path='/profile' element={<Profile />}/>
-                        <Route path='/messages/*'  element={<Dialogs />}/> */}
 
                         <Route  path='/profile' element = { <Profile posts={props.state.profilePage.posts} />}/>
                         <Route path='/messages/*' element = { <Dialogs 

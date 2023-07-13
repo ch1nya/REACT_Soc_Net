@@ -11,10 +11,6 @@ root.render(
   <React.StrictMode>
     <App 
     state={state}
-    
-    // posts={posts}
-    // dialogs={dialogs}
-    // messages={messages}
     />
   </React.StrictMode>
 );

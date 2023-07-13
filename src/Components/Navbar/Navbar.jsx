@@ -1,12 +1,12 @@
 import React from "react";
 import s from './Navbar.module.css'
 import { NavLink } from "react-router-dom";
-import FriendListVidget from "./FriendListVidget/FriendListVidget";
+import NavbarFriendsBlock from "./NavbarFriendsBlock/NavbarFriendsBlock";
 
 
 const Navbar = (props) => {
-    debugger;
-   
+
+
    return <nav className={s.nav}>
     <ul>
         <li className={s.item}>
@@ -26,10 +26,8 @@ const Navbar = (props) => {
         </li>
     </ul>
 
-        <div className={s.friendsBannner}>
-            <div>
-                <FriendListVidget  friendList = {props.friendList}/>
-            </div>
+        <div className={s.NavbarFriendsBlock}>
+               <NavbarFriendsBlock friendList={props.friendList} />
         </div>
     </nav>
 }

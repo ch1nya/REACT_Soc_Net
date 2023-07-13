@@ -1,0 +1,18 @@
+.block {
+    display: flex;
+    margin: auto;
+    font-weight: bold;
+    justify-content: center;
+    background-image: linear-gradient(45deg, #debde4 0%, #c082dc 67%);;
+    border-radius: 25px;
+    width: 14rem;
+
+}
+.block h4 {
+    font-size: 1.2rem;
+    /* margin-bottom: -7px; */
+    margin: 3px 0px -7px 0px;
+    padding: 0rem 3rem 0rem 3rem;
+}
+
+

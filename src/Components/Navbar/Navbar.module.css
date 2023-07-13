@@ -16,17 +16,3 @@
     color: rgb(224, 178, 235);
 }
 
-
-.friendsBannner {
-    background-color: rgb(217, 205, 220);
-    width: 13rem;
-    height: 4rem;
-    margin: 1.5rem;
-    border-radius: 30px;
-    display: grid;
-    grid-template-columns: 5fr;
-    grid-template-rows: 5fr;
-    background-color: #7c7f95;
-    /* background-image: linear-gradient(135deg, #8a8ea1 0%, #7c82a0 50%); */
-    }
-    
