@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import state from './Redux/state';
 import { subscrible } from './Redux/state';
-
+import store from './Redux/state';
 
 import App from './App';
 import { updateNewPostText } from './Redux/state';
@@ -18,15 +18,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
     <React.StrictMode>
       <App 
       state={state}
-      addPost={addPost}
-      updateNewPostText = {updateNewPostText}
+      addPost={store.addPost.bind(store)}
+      updateNewPostText = {store.updateNewPostText.bind(store)}
       />
     </React.StrictMode>
   );
 }
 
-rerenderEntireTree(state);
-subscrible(rerenderEntireTree)
+rerenderEntireTree(store.getState());
+store.subscrible(rerenderEntireTree)
 
 reportWebVitals();
 
