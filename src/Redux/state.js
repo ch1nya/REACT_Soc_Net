@@ -40,28 +40,42 @@ let store = {
         }
 
     },
-    getState() {
-      return this._state
-    },
     callSubscriber() {
       console.log('State is changed')
     },
-    addPost() {
-      let newPost = {
-        id:5,
-        post: this._state.profilePage.newPostText,
-        likesCount: 0
-      };
-      this._state.profilePage.posts.push(newPost)
-      this._state.profilePage.newPostText = ''
-      this._callSubscriber(this._state)
+
+    getState() {
+      return this._state
     },
-    updateNewPostText(newText){
-      this._state.profilePage.newPostText = newText
-      this._callSubscriber(this._state)},
-      subscrible(observer){
+    subscrible(observer){
       this._callSubscriber = observer
+    },
+    
+    dispatch(action){ // {type:'ADD-POST'}
+      if (action.type === 'ADD-POST'){
+        let newPost = {
+          id:5,
+          post: this._state.profilePage.newPostText,
+          likesCount: 0
+        };
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this._callSubscriber(this._state)
+
+      }else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        this._state.profilePage.newPostText = action.newText
+        this._callSubscriber(this._state)
       }
+    },
+
+    
+    // addPost() {
+     
+    // }, // since we created dispatch we can remove it. It will be removed at the next commit
+    // updateNewPostText(newText){
+      
+    // }, // since we created dispatch we can remove it. It will be removed at the next commit
+    
   }
 
 
