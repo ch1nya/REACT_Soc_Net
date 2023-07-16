@@ -1,3 +1,5 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 let store = {
     _state : {
         profilePage : {
@@ -75,10 +77,23 @@ let store = {
     // updateNewPostText(newText){
       
     // }, // since we created dispatch we can remove it. It will be removed at the next commit
-    
+   
+  
+
   }
 
+export const addPostActionCreator = () => {
+  return  {    
+      type:ADD_POST
+  }
+}
 
+export const updateNewPostTextActionCreator = (text) => {
+  return  {
+      type: UPDATE_NEW_POST_TEXT, 
+      newText: text
+  }
+}
 
 
 export default store;

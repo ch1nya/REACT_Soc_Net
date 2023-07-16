@@ -1,7 +1,8 @@
 import React from "react";
 import s from "./MyPosts.module.css"
 import Post from "../Post/Post";
-
+import { addPostActionCreator } from "../../../Redux/state";
+import { updateNewPostTextActionCreator } from "../../../Redux/state";
 
 
 
@@ -11,7 +12,8 @@ const MyPosts = (props) => {
     let postsElements = props.posts.map((p)=> ( <Post message={p.post} likesCount={p.likesCount} />))
 
     let addPostButton  = () => {
-        props.dispatch({type: 'ADD-POST'})
+        props.dispatch(addPostActionCreator())
+        // props.dispatch({type:'ADD-POST'}) // previous call methods
         // props.addPost() // previous call methods
         }
 
@@ -19,7 +21,9 @@ const MyPosts = (props) => {
 
     let postOnChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})
+        let action = updateNewPostTextActionCreator(text) // just split for simplifying workflow
+        props.dispatch(action)
+        // props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text})  // previous call methods
         // props.updateNewPostText(text) //  previous call methods
     }
         
