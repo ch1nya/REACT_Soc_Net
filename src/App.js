@@ -5,6 +5,7 @@ import Profile from "./Components/Profile/ProfileItSelf/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 import Header from "./Components/Header/Header";
 import Dialogs from "./Components/Dialogs/Dialogs";
+import store from "./Redux/state";
 
 
 
@@ -22,17 +23,25 @@ const App = (props) => {
                 <div className='app-wrapper-content'>
                     <Routes>
 
-                        <Route  path='/profile' element = {<Profile posts={props.state.profilePage.posts}
+                        <Route  path='/profile' element = {<Profile profilePage ={props.state.profilePage}
                                                                     dispatch = {props.dispatch}
+                                                                    posts={props.state.profilePage.posts}
+                                                                    
                                                                     
                                                                     // addPost={props.addPost}
                                                                     // newPostText={props.state.profilePage.newPostText}
                                                                     // updateNewPostText={props.updateNewPostText}
                                                                     />}/>
-                        <Route path='/messages/*' element = { <Dialogs 
+                        <Route path='/messages/*' element = { <Dialogs  state = {props.state.dialogsPage}
+                                                                        dispatch = {props.dispatch}
+                                                                        store = {props.store}
+
+
+                                                                        profilePage = {props.state.profilePage}
                                                                         dialogs={props.state.dialogsPage.dialogs} 
                                                                         messages={props.state.dialogsPage.messages}
                                                                         avatar={props.state.dialogsPage.avatar}
+                                                                        
                                                                         
                                                                         />}/>
                     </Routes>
