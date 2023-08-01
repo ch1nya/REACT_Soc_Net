@@ -1,12 +1,18 @@
-import { rerenderEntireTree } from "../render";
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const DIALOGS_ADD_MESSAGE = "DIALOGS-ADD-MESSAGE"
+const DIALOG_UPDATE_MESSAGE = 'DIALOG-UPDATE-MESSAGE'
 
-let state = {
+
+let store = {
+  _state : {
     profilePage : {
         posts : [
             {id: 1, post:'First post...........First post.....First post', likesCount:12   }, 
             {id: 2, post:'Second post/////////..........Second post', likesCount:101   }, 
             {id: 3, post:'Third post..........Third post.........Third post', likesCount:3  },
           ],
+        newPostText: 'newPostText from state.profilePAge.newPostText'
           
 
     },
@@ -27,7 +33,8 @@ let state = {
             {id: 3, message:'Wag1'  },
             {id: 4, message:'Wag!!!!'  },
             {id: 5, message:'LOL'  }
-          ], 
+          ],
+          newMessageText: 'newMessageText from state.DialogPage' 
     },
 
     sidebar: {
@@ -41,16 +48,98 @@ let state = {
 
     }
 
-}
+},
+_callSubscriver() {
+  console.log("state is changed")
+},
 
-export let addPost = (postMessage) => {
+
+getState() {
+  return this._state
+},
+subscribe(observer){
+  this._callSubscriver = observer
+},
+
+
+addPost() {
   let newPost = {
     id:5,
-    post: postMessage,
+    post: this._state.profilePage.newPostText,
     likesCount: 0
-  };
-  state.profilePage.posts.push(newPost)
-  rerenderEntireTree(state)
+  }
+  this._state.profilePage.posts.push(newPost)
+  this._state.profilePage.newPostText = ''
+  this._callSubscriver(this._state)
+},
+
+updateNewPostText(newText) {
+  this._state.profilePage.newPostText = newText 
+  this._callSubscriver(this._state)
+},
+
+
+dispatch(action){
+  if(action.type === ADD_POST){
+    let newPost = {
+      id:5,
+      post: this._state.profilePage.newPostText,
+      likesCount: 0
+      }
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this._callSubscriver(this._state)
+
+  } else if (action.type === UPDATE_NEW_POST_TEXT){
+    this._state.profilePage.newPostText = action.newText 
+    this._callSubscriver(this._state)
+
+  } else if(action.type === DIALOGS_ADD_MESSAGE){
+    let newMessage = {
+      id: 6, 
+      message: this._state.dialogsPage.newMessageText}
+        this._state.dialogsPage.messages.push(newMessage)
+        this._state.dialogsPage.newMessageText = ''
+        this._callSubscriver(this._state)
+
+    } else if (action.type === DIALOG_UPDATE_MESSAGE){
+      this._state.dialogsPage.newMessageText = action.newText 
+      this._callSubscriver(this._state)
+    }
+  }
 }
 
-export default state
+
+
+
+
+export const addPostActionCreate = () => {
+  return {
+      type:ADD_POST
+  }
+}
+
+export const updateNewpostTextActionCreate = (text) => {
+  return {
+      type: UPDATE_NEW_POST_TEXT,
+      newText: text
+  }
+}
+
+export const addMessageActionCreate = () => {
+  return {
+    type: DIALOGS_ADD_MESSAGE
+  }
+}
+export const updateNewMessageActionCreate = (text) => {
+  return {
+      type: DIALOG_UPDATE_MESSAGE,
+      newText: text
+  }
+}
+
+
+
+export default store
+
+window.state = store
