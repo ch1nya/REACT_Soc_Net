@@ -1,7 +1,8 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const DIALOGS_ADD_MESSAGE = "DIALOGS-ADD-MESSAGE"
-const DIALOG_UPDATE_MESSAGE = 'DIALOG-UPDATE-MESSAGE'
+import dialogsReducer from "./dialogsReducer"
+import profileReducer from "./profileReducer"
+import sidebarReducer from "./sidebarReducer"
+
+
 
 
 let store = {
@@ -78,65 +79,21 @@ updateNewPostText(newText) {
   this._callSubscriver(this._state)
 },
 
-
 dispatch(action){
-  if(action.type === ADD_POST){
-    let newPost = {
-      id:5,
-      post: this._state.profilePage.newPostText,
-      likesCount: 0
-      }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._callSubscriver(this._state)
-
-  } else if (action.type === UPDATE_NEW_POST_TEXT){
-    this._state.profilePage.newPostText = action.newText 
-    this._callSubscriver(this._state)
-
-  } else if(action.type === DIALOGS_ADD_MESSAGE){
-    let newMessage = {
-      id: 6, 
-      message: this._state.dialogsPage.newMessageText}
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._callSubscriver(this._state)
-
-    } else if (action.type === DIALOG_UPDATE_MESSAGE){
-      this._state.dialogsPage.newMessageText = action.newText 
-      this._callSubscriver(this._state)
-    }
-  }
+  
+  this._state.profilePage = profileReducer(this._state.profilePage, action)
+  this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+  // this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+  this._callSubscriver(this._state)
+}
 }
 
 
 
 
 
-export const addPostActionCreate = () => {
-  return {
-      type:ADD_POST
-  }
-}
 
-export const updateNewpostTextActionCreate = (text) => {
-  return {
-      type: UPDATE_NEW_POST_TEXT,
-      newText: text
-  }
-}
 
-export const addMessageActionCreate = () => {
-  return {
-    type: DIALOGS_ADD_MESSAGE
-  }
-}
-export const updateNewMessageActionCreate = (text) => {
-  return {
-      type: DIALOG_UPDATE_MESSAGE,
-      newText: text
-  }
-}
 
 
 
