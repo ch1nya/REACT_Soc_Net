@@ -25,10 +25,10 @@ const Navbar = (props) => {
             <NavLink to='/settings'className = { navData => navData.isActive ? s.active : s.item }>Settings</NavLink>
         </li>
     </ul>
-
+{/* 
         <div className={s.NavbarFriendsBlock}>
                <NavbarFriendsBlock friendList={props.friendList} />
-        </div>
+        </div> */}
     </nav>
 }
 

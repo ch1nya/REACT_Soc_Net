@@ -10,6 +10,7 @@ import { addMessageActionCreate, updateNewMessageActionCreate} from "../../Redux
 
 
 const Dialogs = (props) => {
+
     let dialogElements = props.DialogsPage.dialogs.map(d=> <DialogItem 
                                                 name ={d.name}  
                                                 id={d.id}
@@ -28,7 +29,6 @@ const Dialogs = (props) => {
         let text = newMessageElement.current.value
         props.dispatch(updateNewMessageActionCreate(text))
     }
-    
     return (
         <div className={s.dialogs}>
 

@@ -11,24 +11,24 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 
 
 const App = (props) => {
-    
-   
     return (
         <Router>
             <div className='app-wrapper'>
                 <Header />          
-                <Navbar friendList={props.state.sidebar.friendList}/>
+                <Navbar 
+                // friendList={props.state.sidebar.friendList}\
+                />
                 
                 <div className='app-wrapper-content'>
                     <Routes>
 
                         <Route  path='/profile' 
-                                element = {<Profile ProfilePage={props.state.profilePage}
+                                element = {<Profile ProfilePage={props.state.profile}
                                                     dispatch={props.dispatch}
                                                     />}/>
                         <Route path='/messages/*' 
                                element = { <Dialogs 
-                                            DialogsPage={props.state.dialogsPage} 
+                                            DialogsPage={props.state.dialogs} 
                                             dispatch={props.dispatch}
                                             />}/>
                     </Routes>
