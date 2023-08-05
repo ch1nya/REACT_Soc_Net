@@ -6,13 +6,11 @@ import profileReducer from "./profileReducer"
 import sidebarReducer from "./sidebarReducer"
 
 
-let reducesers = combineReducers({
-    profile : profileReducer,  
-    dialogs : dialogsReducer,  
-    sidebar : sidebarReducer,  
-
+const reducers = combineReducers({
+    profile : profileReducer,
+    dialogs : dialogsReducer,
+    sidebar : sidebarReducer,
 })
 
-let store = createStore(reducesers)
-
+const store = createStore(reducers)
 export default store

@@ -7,26 +7,24 @@ import store from './Redux/redux-store';
 // import store from './Redux/store';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'))   
-debugger
- let rerenderEntireTree = (state) => {
+const root = ReactDOM.createRoot(document.getElementById('root'))
+let rerenderEntireTree = (store) => {
+    console.log(store)
     root.render(
         <React.StrictMode>
-            <App 
-                store={store.getState()}
-                dispatch ={store.dispatch.bind(store)}
+            <App
+                state={store.getState()}
+                dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>
-  );
+    );
 }
 
 
-
-rerenderEntireTree(store.getState());
+rerenderEntireTree(store);
 
 store.subscribe(() => {
-    let state = store.getState()
-    rerenderEntireTree(state)
+    rerenderEntireTree(store)
 })
 reportWebVitals();
 

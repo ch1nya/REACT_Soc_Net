@@ -7,14 +7,14 @@ import MyPostsContainter from "../MyPosts/MyPostsContainer";
 
 
 const Profile = (props) => {
-debugger
-    
+
     return <div className="profileWrap">
-                
-                
                 <div>
                     <ProfileInfo />
-                    <MyPostsContainter store={props.store}/>
+                    <MyPostsContainter
+                        state={props.state}
+                        dispatch={props.dispatch}
+                    />
                 </div>
           </div>
 }
