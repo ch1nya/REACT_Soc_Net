@@ -44,48 +44,31 @@ let store = {
             {id: 2, name:'Dima' ,avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9VgouGIj5sFWwhEycB1euuynhs5Cvt1NsMA&usqp=CAU'},
             {id: 3, name:'Alex' ,avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ukvUsooi5M8QMU0jGJagEF824N_DbpAxHg&usqp=CAU'},
             
-          ],
+          ]},
+    _callSubscriver() {
+      console.log("state is changed")
+    },
+    
+    
+    getState() {
+      return this._state
+    },
 
-
+    subscribe(observer){
+      this._callSubscriver = observer
+    },    
+    dispatch(action){
+      
+      this._state.profilePage = profileReducer(this._state.profilePage, action)
+      this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+      // this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+      this._callSubscriver(this._state)
     }
-
-},
-_callSubscriver() {
-  console.log("state is changed")
+    
 },
 
 
-getState() {
-  return this._state
-},
-subscribe(observer){
-  this._callSubscriver = observer
-},
 
-
-addPost() {
-  let newPost = {
-    id:5,
-    post: this._state.profilePage.newPostText,
-    likesCount: 0
-  }
-  this._state.profilePage.posts.push(newPost)
-  this._state.profilePage.newPostText = ''
-  this._callSubscriver(this._state)
-},
-
-updateNewPostText(newText) {
-  this._state.profilePage.newPostText = newText 
-  this._callSubscriver(this._state)
-},
-
-dispatch(action){
-  
-  this._state.profilePage = profileReducer(this._state.profilePage, action)
-  this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
-  // this._state.sidebar = sidebarReducer(this._state.sidebar, action)
-  this._callSubscriver(this._state)
-}
 }
 
 

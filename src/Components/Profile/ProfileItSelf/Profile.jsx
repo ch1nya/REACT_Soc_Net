@@ -2,6 +2,7 @@ import React,{ useRef } from "react";
 import s from './Profile.module.css'
 import MyPosts from "../MyPosts/MyPosts";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
+import MyPostsContainter from "../MyPosts/MyPostsContainer";
 
 
 
@@ -13,10 +14,7 @@ debugger
                 
                 <div>
                     <ProfileInfo />
-                    <MyPosts posts={props.ProfilePage.posts}
-                             newPostText={props.ProfilePage.newPostText}
-                             dispatch={props.dispatch}
-                             />
+                    <MyPostsContainter store={props.store}/>
                 </div>
           </div>
 }

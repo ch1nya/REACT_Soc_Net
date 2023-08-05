@@ -6,20 +6,19 @@ import { addPostActionCreate, updateNewpostTextActionCreate } from "../../../Red
 
 
 const MyPosts = (props) => {
-    debugger
+    
     
     let postsElements = props.posts.map((p)=> ( <Post message={p.post} likesCount={p.likesCount} />))
 
     let newPostElement = React.createRef()
 
     let addPostButton  = () => {
-        props.dispatch(addPostActionCreate())
-        
+            props.addPost()
     }
 
     let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.dispatch(updateNewpostTextActionCreate(text))
+        let text = newPostElement.current.value; 
+        props.updateNewpostText(text) //monitor!!!
     }
 
     return  (

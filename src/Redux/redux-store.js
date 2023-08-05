@@ -1,11 +1,14 @@
-    import {combineReducers, legacy_createStore as createStore} from "redux"
+import {combineReducers, legacy_createStore as createStore} from "redux"
+// import {combineReducers, createStore} from "redux"
+
 import dialogsReducer from "./dialogsReducer"
 import profileReducer from "./profileReducer"
 import sidebarReducer from "./sidebarReducer"
 
+
 let reducesers = combineReducers({
-    dialogs : dialogsReducer,  
     profile : profileReducer,  
+    dialogs : dialogsReducer,  
     sidebar : sidebarReducer,  
 
 })

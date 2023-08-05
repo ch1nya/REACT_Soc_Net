@@ -11,6 +11,7 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 
 
 const App = (props) => {
+    debugger
     return (
         <Router>
             <div className='app-wrapper'>
@@ -23,13 +24,12 @@ const App = (props) => {
                     <Routes>
 
                         <Route  path='/profile' 
-                                element = {<Profile ProfilePage={props.state.profile}
-                                                    dispatch={props.dispatch}
+                                element = {<Profile 
+                                            store={props.store}
                                                     />}/>
                         <Route path='/messages/*' 
                                element = { <Dialogs 
-                                            DialogsPage={props.state.dialogs} 
-                                            dispatch={props.dispatch}
+                                            store={props.store} 
                                             />}/>
                     </Routes>
                 </div>
