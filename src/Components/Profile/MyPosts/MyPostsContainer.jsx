@@ -5,9 +5,10 @@ import MyPosts from "./MyPosts";
 
 
 const MyPostsContainter = (props) => {
+    
+    const state = props.store.getState()
+    const {posts,newPostText} = state.profile
     debugger
-    let state = props.store.getState();
-
     let addPost  = () => {
             props.store.dispatch(addPostActionCreate()) 
     }
@@ -17,13 +18,15 @@ const MyPostsContainter = (props) => {
         props.store.dispatch(action)
 
     }
-
+debugger
     return  (
         <MyPosts 
         updateNewpostText={onPostChange}
         addPost = {addPost}
-        posts = {state.profilePage.posts}
-        newPostText = {state.profilePage.newPostText}
+        posts = {posts}
+        newPostText = {newPostText}
+        // posts = {state.profile.posts}
+        // newPostText = {state.profile.newPostText}
         />
     )
 }

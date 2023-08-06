@@ -8,12 +8,11 @@ import store from './Redux/redux-store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))   
-debugger
- let rerenderEntireTree = (state) => {
+ let rerenderEntireTree = (store) => {
     root.render(
         <React.StrictMode>
             <App 
-                store={store.getState()}
+                store={store}
                 dispatch ={store.dispatch.bind(store)}
             />
         </React.StrictMode>
@@ -22,11 +21,10 @@ debugger
 
 
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree(store);
 
 store.subscribe(() => {
-    let state = store.getState()
-    rerenderEntireTree(state)
+    rerenderEntireTree(store)
 })
 reportWebVitals();
 

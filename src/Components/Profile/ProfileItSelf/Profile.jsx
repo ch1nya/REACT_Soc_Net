@@ -7,7 +7,6 @@ import MyPostsContainter from "../MyPosts/MyPostsContainer";
 
 
 const Profile = (props) => {
-debugger
     
     return <div className="profileWrap">
                 

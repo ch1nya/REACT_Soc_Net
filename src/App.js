@@ -5,13 +5,14 @@ import Profile from "./Components/Profile/ProfileItSelf/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 import Header from "./Components/Header/Header";
 import Dialogs from "./Components/Dialogs/Dialogs";
+import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
 
 
 
 
 const App = (props) => {
-    debugger
+    
     return (
         <Router>
             <div className='app-wrapper'>
@@ -26,9 +27,10 @@ const App = (props) => {
                         <Route  path='/profile' 
                                 element = {<Profile 
                                             store={props.store}
+                                            
                                                     />}/>
                         <Route path='/messages/*' 
-                               element = { <Dialogs 
+                               element = { <DialogsContainer
                                             store={props.store} 
                                             />}/>
                     </Routes>
