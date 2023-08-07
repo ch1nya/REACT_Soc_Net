@@ -4,19 +4,22 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import store from './Redux/redux-store';
-// import store from './Redux/store';
+import StoreContext from './StoreContext';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'))   
- let rerenderEntireTree = (store) => {
+const root = ReactDOM.createRoot(document.getElementById('root'))
+let rerenderEntireTree = (store) => {
     root.render(
         <React.StrictMode>
-            <App 
-                store={store}
-                dispatch ={store.dispatch.bind(store)}
-            />
+            <StoreContext.Provider value={store}>
+                <App
+                // store={store}
+                // dispatch ={store.dispatch.bind(store)} 
+                // replaced props with context 
+                />
+            </StoreContext.Provider>
         </React.StrictMode>
-  );
+    );
 }
 
 

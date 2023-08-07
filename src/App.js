@@ -26,12 +26,12 @@ const App = (props) => {
 
                         <Route  path='/profile' 
                                 element = {<Profile 
-                                            store={props.store}
+                                            // store={props.store} // replaced props with context
                                             
                                                     />}/>
                         <Route path='/messages/*' 
                                element = { <DialogsContainer
-                                            store={props.store} 
+                                            // store={props.store} // replaced props with context
                                             />}/>
                     </Routes>
                 </div>

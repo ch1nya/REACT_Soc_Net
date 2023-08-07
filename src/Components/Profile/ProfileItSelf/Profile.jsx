@@ -13,7 +13,9 @@ const Profile = (props) => {
                 
                 <div>
                     <ProfileInfo />
-                    <MyPostsContainter store={props.store}/>
+                    <MyPostsContainter
+                    //  store={props.store} // replaced props with context
+                     />
                 </div>
           </div>
 }
