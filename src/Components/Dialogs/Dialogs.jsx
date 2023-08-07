@@ -10,16 +10,12 @@ import { addMessageActionCreate, updateNewMessageActionCreate} from "../../Redux
 
 
 const Dialogs = (props) => {
-
-
- let state = props.state
-
-let dialogElements = state.dialogs.map(d=> <DialogItem 
+let dialogElements = props.dialogs.dialogs.map(d=> <DialogItem 
         name ={d.name}  
         id={d.id}
         avatar={d.avatar}/>)
 
-let messagesElements = state.messages.map(m => <Message message={m.message} />)
+let messagesElements = props.dialogs.messages.map(m => <Message message={m.message} />)
 
 let newMessageElement = React.createRef()
 
@@ -29,7 +25,6 @@ props.addMessage()}
 let onMessageChange = (text) => {
     let body = text.target.value 
     props.updateNewMessage(body)}
-
 debugger
     return (
         <div className={s.dialogs}>
@@ -42,7 +37,7 @@ debugger
                 <p className={s.message}>{messagesElements}</p>
                 <textarea 
                 ref={newMessageElement}
-                value={state.newMessageText}
+                value={props.dialogs.newMessageText}
                 onChange={onMessageChange}
                 ></textarea>
                 <div>

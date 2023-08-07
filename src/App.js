@@ -25,14 +25,9 @@ const App = (props) => {
                     <Routes>
 
                         <Route  path='/profile' 
-                                element = {<Profile 
-                                            // store={props.store} // replaced props with context
-                                            
-                                                    />}/>
+                                element = {<Profile />}/>
                         <Route path='/messages/*' 
-                               element = { <DialogsContainer
-                                            // store={props.store} // replaced props with context
-                                            />}/>
+                               element = { <DialogsContainer />}/>
                     </Routes>
                 </div>
 

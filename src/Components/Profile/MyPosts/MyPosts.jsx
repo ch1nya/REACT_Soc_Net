@@ -20,7 +20,7 @@ const MyPosts = (props) => {
         let text = newPostElement.current.value; 
         props.updateNewpostText(text) //monitor!!!
     }
-
+debugger
     return  (
     <div className={s.postBlock}>
         <h3>My posts</h3>
