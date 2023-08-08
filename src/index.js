@@ -19,11 +19,5 @@ let rerenderEntireTree = (store) => {
 }
 
 
-
 rerenderEntireTree(store);
-
-store.subscribe(() => {
-    rerenderEntireTree(store)
-})
-reportWebVitals();
 

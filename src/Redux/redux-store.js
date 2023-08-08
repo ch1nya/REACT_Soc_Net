@@ -15,4 +15,5 @@ let reducesers = combineReducers({
 
 let store = createStore(reducesers)
 
+// window.store = store
 export default store

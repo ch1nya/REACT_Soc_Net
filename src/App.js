@@ -4,7 +4,6 @@ import "./App.css"
 import Profile from "./Components/Profile/ProfileItSelf/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 import Header from "./Components/Header/Header";
-import Dialogs from "./Components/Dialogs/Dialogs";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 
 

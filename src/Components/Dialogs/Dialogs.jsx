@@ -25,7 +25,6 @@ props.addMessage()}
 let onMessageChange = (text) => {
     let body = text.target.value 
     props.updateNewMessage(body)}
-debugger
     return (
         <div className={s.dialogs}>
 
