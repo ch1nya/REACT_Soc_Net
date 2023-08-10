@@ -5,8 +5,11 @@ import { Connect, connect } from 'react-redux'
 
 let mapStateToProps = (state)=> {
   return {
-    users: state.users.users
-  }
+    users: state.users.users,
+    pageSize: state.users.pageSize,
+    totalUsersCount: state.users.totalUsersCount,
+    currentPage: state.users.currentPage
+   }
 }
 let mapDispatchToProps = (dispatch) => {
   return{
