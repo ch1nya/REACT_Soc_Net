@@ -18,6 +18,7 @@ let rerenderEntireTree = (store) => {
     );
 }
 
+window.store = store
 
 rerenderEntireTree(store);
 
