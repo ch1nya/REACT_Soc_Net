@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css"
 import ProfileContainer from "./Components/Profile/ProfileItSelf/ProfileContainer";
-import Navbar from "./Components/Navbar/Navbar";
-import Header from "./Components/Header/Header";
+import Navbar from "./Components/Navbar/Navbar"; 
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 
 
@@ -16,7 +16,7 @@ const App = (props) => {
     return (
         <Router>
             <div className='app-wrapper'>
-                <Header />
+                <HeaderContainer />
                 <Navbar
                 // friendList={props.state.sidebar.friendList}\
                 />
