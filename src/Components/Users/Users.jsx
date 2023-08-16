@@ -2,6 +2,7 @@ import React from 'react'
 import s from './Users.module.css'
 import userPhoto from './../../Assets/Images/user.png'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -29,14 +30,24 @@ const Users = (props) => {
         <div key={user.id}>
           <span>
             <div>
-              <NavLink to={`/profile/${user.id}`}> 
+              <NavLink to={`/profile/${user.id}`}>
                 <img className={s.avatar} src={user.photos.small !== null ? user.photos.small : userPhoto} alt="" />
               </NavLink>
             </div>
             <div>
               {user.followed
-                ? <button onClick={() => { props.unfollow(user.id) }}>Unfollow</button>
-                : <button onClick={() => { props.follow(user.id) }}>Follow</button>}
+                ? <button onClick={() => {
+                  axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, { withCredentials: true, headers:{"API-KEY":'f03ec59c-3d02-4701-bf90-527792b5d4b5'}})
+                    .then(response => {
+                      if (response.data.resultCode === 0) { props.unfollow(user.id) }
+                    })
+                }}>Unfollow</button>
+                : <button onClick={() => {
+                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, { withCredentials: true,  headers:{"API-KEY":'f03ec59c-3d02-4701-bf90-527792b5d4b5'}})
+                    .then(response => {
+                      if (response.data.resultCode === 0) { props.follow(user.id) }
+                    })
+                }}>Follow</button>}
             </div>
           </span>
           <span>
