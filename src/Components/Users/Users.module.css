@@ -9,3 +9,15 @@
     font-weight: bold;
     font-size: 1.05rem;
 }
+
+
+.unfollowButton, .followButton{
+    margin-left: 6px;
+    width: 5rem;
+    height: 1.8rem;
+    border-radius: 10px;
+    /* background-color: black; */
+    /* color: rgb(162, 147, 175); */
+    /* box-shadow: 2px 2px 2px; */
+
+}

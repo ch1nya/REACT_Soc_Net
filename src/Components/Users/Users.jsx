@@ -38,23 +38,28 @@ const Users = (props) => {
             </div>
             <div>
               {user.followed
-                ? <button desabled={props.followingInProgress} onClick={() => {
-                  debugger
-                  props.toggleFollowingProgress(true)
-                  usersAPI.unfollow(user)
-                    .then(responce => {
-                      if (responce.data.resultCode === 0) { props.unfollow(user.id) }
-                      props.toggleFollowingProgress(false)
-                    })
-                }}>Unfollow</button>
-                : <button desabled={props.followingInProgress} onClick={() => {
-                  props.toggleFollowingProgress(true)
-                  usersAPI.follow(user)
-                    .then(responce => {
-                      if (responce.data.resultCode === 0) { props.follow(user.id) }
-                      props.toggleFollowingProgress(false)
-                    })
-                }}>Follow</button>}
+                ? <button
+                  className={s.unfollowButton}
+                  disabled={props.followingInProgress.some(id=> id===user.id)}
+                  onClick={() => {
+                    props.toggleFollowingProgress(true, user.id)
+                    usersAPI.unfollow(user)
+                      .then(responce => {
+                        if (responce.data.resultCode === 0) { props.unfollow(user.id) }
+                        props.toggleFollowingProgress(false, user.id)
+                      })
+                  }}>Unfollow</button>
+                : <button
+                  className={s.followButton}
+                  disabled={props.followingInProgress.some(id=> id===user.id)}
+                  onClick={() => {
+                    props.toggleFollowingProgress(true, user.id)
+                    usersAPI.follow(user)
+                      .then(responce => {
+                        if (responce.data.resultCode === 0) { props.follow(user.id) }
+                        props.toggleFollowingProgress(false, user.id)
+                      })
+                  }}>Follow</button>}
 
               {/* axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, { withCredentials: true, headers:{"API-KEY":'f03ec59c-3d02-4701-bf90-527792b5d4b5'}})
                     .then(response => {

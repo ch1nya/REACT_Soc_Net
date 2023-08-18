@@ -16,14 +16,6 @@ class UsersContainer extends React.Component {
         this.props.setUsers(data.items)
         this.props.setTotalUsersCount(data.totalCount)
       })
-
-
-      // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,{withCredentials: true})
-      // .then(response => {
-      //   this.props.toggleIsFetching(false)
-      //   this.props.setUsers(response.data.items)
-      //   this.props.setTotalUsersCount(response.data.totalCount)
-      // })
   }
 
   onPageChanger = (page) => {
@@ -36,16 +28,7 @@ class UsersContainer extends React.Component {
 
       })
   }
-  // onPageChanger = (page) => {
-  //   this.props.setCurrentPage(page)
-  //   this.props.toggleIsFetching(true)
-  //   axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`, {withCredentials: true})
-  //     .then(response => {
-  //       this.props.toggleIsFetching(false)
-  //       this.props.setUsers(response.data.items)
 
-  //     })
-  // }
   render() {
     return <>
       {this.props.isFetching ? <Preloader /> : null}
