@@ -6,6 +6,7 @@ import axios from 'axios'
 import { usersAPI } from '../../apiFolder/API'
 
 const Users = (props) => {
+  // debugger
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {
@@ -37,16 +38,21 @@ const Users = (props) => {
             </div>
             <div>
               {user.followed
-                ? <button onClick={() => {
+                ? <button desabled={props.followingInProgress} onClick={() => {
+                  debugger
+                  props.toggleFollowingProgress(true)
                   usersAPI.unfollow(user)
-                    .then(data => {
-                      if (data.resultCode === 0) { props.unfollow(user.id) }
+                    .then(responce => {
+                      if (responce.data.resultCode === 0) { props.unfollow(user.id) }
+                      props.toggleFollowingProgress(false)
                     })
                 }}>Unfollow</button>
-                : <button onClick={() => {
+                : <button desabled={props.followingInProgress} onClick={() => {
+                  props.toggleFollowingProgress(true)
                   usersAPI.follow(user)
-                    .then(data => {
-                      if (data.resultCode === 0) { props.follow(user.id) }
+                    .then(responce => {
+                      if (responce.data.resultCode === 0) { props.follow(user.id) }
+                      props.toggleFollowingProgress(false)
                     })
                 }}>Follow</button>}
 
