@@ -4,9 +4,9 @@ import userPhoto from './../../Assets/Images/user.png'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import { usersAPI } from '../../apiFolder/API'
+import { follow, unfollow } from '../../Redux/usersReducer'
 
 const Users = (props) => {
-  // debugger
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {
@@ -42,36 +42,30 @@ const Users = (props) => {
                   className={s.unfollowButton}
                   disabled={props.followingInProgress.some(id=> id===user.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, user.id)
-                    usersAPI.unfollow(user)
-                      .then(responce => {
-                        if (responce.data.resultCode === 0) { props.unfollow(user.id) }
-                        props.toggleFollowingProgress(false, user.id)
-                      })
+                    debugger
+                    props.unfollow(user.id)
+
+                    // props.toggleFollowingProgress(true, user.id)
+                    // usersAPI.unfollow(user)
+                    //   .then(responce => {
+                    //     if (responce.data.resultCode === 0) { props.unfollow(user.id) }
+                    //     props.toggleFollowingProgress(false, user.id)
+                    //   })
+
                   }}>Unfollow</button>
                 : <button
                   className={s.followButton}
                   disabled={props.followingInProgress.some(id=> id===user.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, user.id)
-                    usersAPI.follow(user)
-                      .then(responce => {
-                        if (responce.data.resultCode === 0) { props.follow(user.id) }
-                        props.toggleFollowingProgress(false, user.id)
-                      })
+                    debugger
+                    props.follow(user.id)
+                    // props.toggleFollowingProgress(true, user.id)
+                    // usersAPI.follow(user)
+                    //   .then(responce => {
+                    //     if (responce.data.resultCode === 0) { props.follow(user.id) }
+                    //     props.toggleFollowingProgress(false, user.id)
+                    //   })
                   }}>Follow</button>}
-
-              {/* axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, { withCredentials: true, headers:{"API-KEY":'f03ec59c-3d02-4701-bf90-527792b5d4b5'}})
-                    .then(response => {
-                      if (response.data.resultCode === 0) { props.unfollow(user.id) }
-                    })
-                }}>Unfollow</button>
-                : <button onClick={() => {
-                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, { withCredentials: true,  headers:{"API-KEY":'f03ec59c-3d02-4701-bf90-527792b5d4b5'}})
-                    .then(response => {
-                      if (response.data.resultCode === 0) { props.follow(user.id) } */}
-
-
 
             </div>
           </span>
