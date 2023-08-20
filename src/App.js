@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import Login from "./Components/login/Login";
 
 
 
@@ -23,16 +24,13 @@ const App = (props) => {
 
                 <div className='app-wrapper-content'>
                     <Routes>
-
-                        {/* <Route path='/profile/*' element={<ProfileContainer />} /> */}
-
                         <Route path="/profile/:userId?" element={<ProfileContainer />}/>
-
-
                         <Route path='/messages/*'
                             element={<DialogsContainer />} />
                         <Route path='/users'
                             element={<UsersContainer />} />
+                        <Route path='/login'
+                            element={<Login />} />
                     </Routes>
                 </div>
 
