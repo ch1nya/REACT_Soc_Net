@@ -10,27 +10,11 @@ import Preloader from '../CommonComponents/Preloader'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    // debugger
-    // this.props.toggleIsFetching(true)
-    
-    // usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-    //   .then(data => {
-    //     this.props.toggleIsFetching(false)
-    //     this.props.setUsers(data.items)
-    //     this.props.setTotalUsersCount(data.totalCount)
-    //   })
     this.props.getUsers(this.props.currentPage, this.props.pageSize)
   }
 
   onPageChanger = (page) => {
     this.props.getUsers(page, this.props.pageSize)
-    // this.props.setCurrentPage(page)
-    // this.props.toggleIsFetching(true)
-    // usersAPI.getUsers(page, this.props.pageSize)
-    //   .then(data => { 
-    //     this.props.toggleIsFetching(false)
-    //     this.props.setUsers(data.items)
-      // })
   }
 
   render() {

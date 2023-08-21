@@ -7,7 +7,7 @@ import {
     useNavigate,
     useParams,
 } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import WithAuthRedirect from "../../../hoc/WithAuthRedirect";
 
 // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
 function withRouter(Component) {
@@ -32,9 +32,9 @@ class ProfileContainer extends React.Component {
     }
     
     render() {
-        if (!this.props.isAuth){
-            return <Navigate to="/login"/>
-        }
+        // if (!this.props.isAuth){
+        //     return <Navigate to="/login"/>
+        // }             before 
         return (
             <div>
                 <Profile {...this.props} profile={this.props.profile} />
@@ -42,12 +42,25 @@ class ProfileContainer extends React.Component {
         )
     }
 }
-
+// ↓ after 
+// const AuthRedirectComponent = (props) =>{
+//     if (!this.props.isAuth){
+//         return <Navigate to="/login"/>
+//     }  
+//   return   <ProfileContainer {...props} />
+// }
+// ↓ after but better 
+let AuthRedirectComponent =WithAuthRedirect(ProfileContainer)
 let mapStateToProps = (state) => ({
     profile: state.profile.profile,
-    isAuth: state.auth.isAuth
-
 })
 
+// ↓ added functinality to check auth status here and then replaced that to HOC to check it inside the HOC
+// let mapStateToPropsForRedirect = (state) => ({
+//     isAuth: state.auth.isAuth
+// })
+// AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent) 
 
-export default connect(mapStateToProps, { getUserProfile })(withRouter(ProfileContainer))
+//                                                          ↓replaced ProfileContainer with AuthRedirectComponent
+//                                                          ↓replaced AuthRedirectComponent with WithAuthRedirect(ProfileContainer)
+export default connect(mapStateToProps, { getUserProfile })(withRouter(AuthRedirectComponent))
