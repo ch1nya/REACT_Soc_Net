@@ -4,7 +4,7 @@ import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import WithAuthRedirect from "../../hoc/WithAuthRedirect";
 import { compose } from "redux";
-import WithAuthRedirect from "../hoc/WithAuthRedirect";
+
 
 
 
