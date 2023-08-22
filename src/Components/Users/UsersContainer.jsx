@@ -1,8 +1,9 @@
 import React from 'react'
-import { follow, unfollow, setUsers, 
+import {
+  follow, unfollow, setUsers,
   setCurrentPage,
-   toggleFollowingProgress, getUsers
-   } from '../../Redux/usersReducer'
+  toggleFollowingProgress, getUsers
+} from '../../Redux/usersReducer'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import Users from './Users'
@@ -30,8 +31,7 @@ class UsersContainer extends React.Component {
         users={this.props.users}
         follow={this.props.follow}
         unfollow={this.props.unfollow}
-        // toggleFollowingProgress={this.props.toggleFollowingProgress}
-        followingInProgress = {this.props.followingInProgress}
+        followingInProgress={this.props.followingInProgress}
       />
     </>
   }
@@ -45,9 +45,11 @@ let mapStateToProps = (state) => {
     currentPage: state.users.currentPage,
     isFetching: state.users.isFetching,
     followingInProgress: state.users.followingInProgress
-    
+
   }
 }
+
+let withRedirect = WithAuthRedirect(UsersContainer)
 
 //       ↓SIPLIFIED VERSION
 // let withRedirect = WithAuthRedirect(UsersContainer)

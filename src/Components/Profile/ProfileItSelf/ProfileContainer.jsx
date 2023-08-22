@@ -10,7 +10,6 @@ import {
 import WithAuthRedirect from "../../../hoc/WithAuthRedirect";
 import { compose } from "redux";
 
-// wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
 function withRouter(Component) {
     function ComponentWithRouterProp(props) {
         let location = useLocation();
@@ -28,10 +27,10 @@ function withRouter(Component) {
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.router.params.userId;
-        if(!userId){userId = 2}
+        if (!userId) { userId = 2 }
         this.props.getUserProfile(userId)
     }
-    
+
     render() {
         // if (!this.props.isAuth){
         //     return <Navigate to="/login"/>
