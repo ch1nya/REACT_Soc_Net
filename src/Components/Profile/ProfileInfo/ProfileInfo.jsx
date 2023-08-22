@@ -1,5 +1,6 @@
 import s from "./ProfileInfo.module.css"
 import Preloader from "../../CommonComponents/Preloader"
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -15,6 +16,7 @@ const ProfileInfo = (props) => {
             <div className={s.descriptionBlock}>
                 <img style={{ borderRadius: "30%" }} src={props.profile.photos.large} alt="" />
                 <h3 style={{fontFamily:"cursive",fontSize: "30px"}}>{props.profile.fullName}</h3>
+                <ProfileStatus status={'sosal'}/>
                 <p style={{fontFamily:"cursive",fontStyle:'italic',fontSize: "1.2rem"}}>{props.profile.aboutMe}</p>
                 <p>
                     <span style={{ fontWeight: "bold", fontSize: '1.2rem' }}>
