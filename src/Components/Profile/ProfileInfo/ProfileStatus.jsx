@@ -4,37 +4,42 @@ import s from "./ProfileInfo.module.css";
 class ProfileStatus extends React.Component {
   state = {
     editMode: false,
-    title: "wo",
+    status: this.props.status,
   };
-  activateEditmode() {
+  activateEditmode = () => {
     this.setState({
       editMode: true,
     });
-  }
-  deactivateEditmode() {
+  };
+  deactivateEditmode = () => {
     this.setState({
       editMode: false,
     });
-  }
-  render() {
+    this.props.updateStatus(this.state.status)
+  };
+  onStatusChange = (e) => {
+    this.setState({ status: e.currentTarget.value});
+  };
+  render() {    
     return (
       <div>
         {!this.state.editMode ? (
           <div>
             <span
               className={s.editableInput}
-              onDoubleClick={this.activateEditmode.bind(this)}
+              onDoubleClick={this.activateEditmode}
             >
-              {this.props.status}
+              {this.props.status || "NO status" }
             </span>
           </div>
         ) : (
           <div>
             <input
+              onChange={this.onStatusChange}
               autoFocus={true}
-              onBlur={this.deactivateEditmode.bind(this)}
+              onBlur={this.deactivateEditmode}
               className={s.status}
-              value={this.props.status}
+              value={this.state.status}
             />
           </div>
         )}
