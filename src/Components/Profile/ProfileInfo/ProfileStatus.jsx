@@ -15,12 +15,19 @@ class ProfileStatus extends React.Component {
     this.setState({
       editMode: false,
     });
-    this.props.updateStatus(this.state.status)
+    this.props.updateStatus(this.state.status);
   };
   onStatusChange = (e) => {
-    this.setState({ status: e.currentTarget.value});
+    this.setState({ status: e.currentTarget.value });
   };
-  render() {    
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({ status: this.props.status });
+    }
+  }
+
+  render() {
     return (
       <div>
         {!this.state.editMode ? (
@@ -29,7 +36,7 @@ class ProfileStatus extends React.Component {
               className={s.editableInput}
               onDoubleClick={this.activateEditmode}
             >
-              {this.props.status || "NO status" }
+              {this.props.status || "NO status"}
             </span>
           </div>
         ) : (
