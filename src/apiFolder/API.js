@@ -29,7 +29,7 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-        getProfile(userId){
+    getProfile(userId){
         return instance.get(`profile/${userId}`)
     },
     getStatus(userId){
@@ -38,6 +38,19 @@ export const profileAPI = {
     updateStatus(status){
         return instance.put(`profile/status`,{status: status})
     },
+}
+
+
+export const loginAPI = {
+    getProfile(){
+    return instance.post(`login`)
+},
+getStatus(userId){
+    return instance.get(`profile/status/${userId}`)
+},
+updateStatus(status){
+    return instance.put(`profile/status`,{status: status})
+},
 }
 
 export const authAPI = {

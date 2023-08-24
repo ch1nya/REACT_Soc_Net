@@ -1,14 +1,9 @@
 
-import { addMessageActionCreate, updateNewMessageActionCreate } from "../../Redux/dialogsReducer";
+import { addMessageActionCreate } from "../../Redux/dialogsReducer";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import WithAuthRedirect from "../../hoc/WithAuthRedirect";
 import { compose } from "redux";
-
-
-
-
-
 
 
 let  mapStateToProps = (state) =>{
@@ -18,26 +13,8 @@ let  mapStateToProps = (state) =>{
 }
 let  mapDispatchToProps = (dispatch) =>{ 
     return {
-        addMessage : ()=> {
-            dispatch(addMessageActionCreate())
-    },
-    updateNewMessage : (text)=> {
-        let action = updateNewMessageActionCreate(text) 
-        dispatch(action)
-    }
-    }
+        addMessage : (newMessageBody)=> {
+            dispatch(addMessageActionCreate(newMessageBody))
+    }  }
 }
-//                 ↓after
-// const AuthRedirectComponent = (props) =>{
-//     if (!this.props.isAuth){
-//         return <Navigate to="/login"/>
-//     }  
-//   return   <Dialogs {...props} />
-// }
-//              ↓after better version
-// let AuthRedirectComponent = WithAuthRedirect(Dialogs)
-//                                                                   ↓replaced Dialogs with AuthRedirectComponent
-//                                                                   ↓replaced AuthRedirectComponent with WithAuthRedirect(Dialogs)
-// const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)(AuthRedirectComponent)
-//                                                                   ↓replaced the constructure above to a short compose function 
 export default compose(connect(mapStateToProps,mapDispatchToProps),WithAuthRedirect)(Dialogs)

@@ -1,5 +1,4 @@
 const DIALOGS_ADD_MESSAGE = "DIALOGS-ADD-MESSAGE"
-const DIALOG_UPDATE_MESSAGE = 'DIALOG-UPDATE-MESSAGE'
 
  let initialState = {
   dialogs : [
@@ -17,24 +16,16 @@ const DIALOG_UPDATE_MESSAGE = 'DIALOG-UPDATE-MESSAGE'
         {id: 3, message:'Wag1'  },
         {id: 4, message:'Wag!!!!'  },
         {id: 5, message:'LOL'  }
-      ],
-      newMessageText: 'newMessageText from state.DialogPage'
+      ]
  }
 
 const dialogsReducer = (state = initialState, action) => {
   let stateCopy = {...state}
   switch (action.type){
-    case DIALOG_UPDATE_MESSAGE:{
-        return {
-          ...state,
-          newMessageText: action.newText
-        }
-    } 
     case DIALOGS_ADD_MESSAGE:{     
-      let newMessage = state.newMessageText
+      let newMessage = action.newMessageBody
       return {
         ...state,
-        newMessageText: '',
         messages: [...state.messages, {id:6,message: newMessage}]
       }
       }
@@ -43,16 +34,12 @@ const dialogsReducer = (state = initialState, action) => {
 }
 }
 
-export const addMessageActionCreate = () => {
+export const addMessageActionCreate = (newMessageBody) => {
   return {
-    type: DIALOGS_ADD_MESSAGE
+    type: DIALOGS_ADD_MESSAGE,
+    newMessageBody 
   }
 }
-export const updateNewMessageActionCreate = (text) => {
-  return {
-      type: DIALOG_UPDATE_MESSAGE,
-      newText: text
-  }
-}
+
     
 export default dialogsReducer
