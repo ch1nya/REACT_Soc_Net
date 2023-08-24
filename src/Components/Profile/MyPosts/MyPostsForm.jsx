@@ -9,12 +9,19 @@ let minLength3 = minLengthCreator(3)
 
 const MyPostsForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.onSubmit}>
       <div>
-        <Field component='textarea' name='newPostBody' placeholder="Input your post text" validate={[required, maxLength10, minLength3]}/>
+        <Field
+            ref={props.ref}
+            onChange={props.onChange}
+            component='textarea'
+            name='newPostBody'
+            placeholder="Input your post text"
+            validate={[required, maxLength10, minLength3]}
+        />
       </div>
       <div>
-        <button >Add post</button>
+        <button type="submit">Add post</button>
       </div>
     </form>
   );
