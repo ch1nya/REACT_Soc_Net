@@ -28,7 +28,7 @@ const MyPosts = (props) => {
         <div className={s.postBlock}>
             <h3>My posts</h3>
             <MyPostReduxForm
-                ref={newPostElement} // посмотрим как Димыч предлагает связывать state и форму и убери это потом
+                ref={newPostElement} // посмотри как Димыч предлагает связывать state и форму и убери это потом
                 onSubmit={addNewPost}
                 onChange={onPostChange}
             />
