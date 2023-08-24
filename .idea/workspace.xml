@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d38461c3-4f15-4f32-a2b4-434aee5cd51d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPostsForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPostsForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileItSelf/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileItSelf/ProfileContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apiFolder/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiFolder/API.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/WithAuthRedirect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/WithAuthRedirect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Validators/Validators.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Validators/Validators.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="dimas" />
+                    <option name="lastUsedInstant" value="1691232597" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="2nd_try" />
+                    <option name="lastUsedInstant" value="1691232424" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2TYqUQ58riZytB36avEjrzyhSSI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2nd__try&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d38461c3-4f15-4f32-a2b4-434aee5cd51d" name="Changes" comment="" />
+      <created>1691230378711</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691230378711</updated>
+      <workItem from="1691230388777" duration="4793000" />
+      <workItem from="1691396490711" duration="1000" />
+      <workItem from="1691396517579" duration="27000" />
+      <workItem from="1691660119908" duration="113000" />
+      <workItem from="1691663398780" duration="513000" />
+      <workItem from="1691668063733" duration="60000" />
+      <workItem from="1691675746167" duration="402000" />
+      <workItem from="1691676172007" duration="12000" />
+      <workItem from="1691677895960" duration="1193000" />
+      <workItem from="1691679136678" duration="592000" />
+      <workItem from="1691750213256" duration="765000" />
+      <workItem from="1691756711086" duration="587000" />
+      <workItem from="1692027665997" duration="1346000" />
+      <workItem from="1692090467731" duration="42000" />
+      <workItem from="1692457775493" duration="1357000" />
+      <workItem from="1692470923167" duration="901000" />
+      <workItem from="1692616104575" duration="1000" />
+      <workItem from="1692616122195" duration="14000" />
+      <workItem from="1692882879221" duration="624000" />
+      <workItem from="1692884558949" duration="2926000" />
+      <workItem from="1692907842287" duration="2814000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
