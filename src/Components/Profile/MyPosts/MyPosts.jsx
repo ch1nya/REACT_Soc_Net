@@ -9,20 +9,12 @@ import { reduxForm } from "redux-form";
 
 const MyPosts = (props) => {
     
-    
     let postsElements = props.posts.map((p)=> ( <Post message={p.post} likesCount={p.likesCount} />))
 
-    let newPostElement = React.createRef()
-
     let addNewPost  = (values) => {
-        debugger
             props.addPost(values.newPostBody)
     }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value; 
-        props.updateNewpostText(text) //monitor!!!
-    } 
     return  (
     <div className={s.postBlock}>
         <h3>My posts</h3>
@@ -33,6 +25,6 @@ const MyPosts = (props) => {
     </div>
     )
 }
-const MyPostReduxForm = reduxForm({form: 'DialogAddPostForm'})(MyPostsForm)
+const MyPostReduxForm = reduxForm({form: 'ProfileAddPostForm'})(MyPostsForm)
 
 export default MyPosts

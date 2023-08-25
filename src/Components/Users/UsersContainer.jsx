@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import Users from './Users'
-import Preloader from '../CommonComponents/Preloader'
+import Preloader from '../../CommonComponents/Preloader'
 import WithAuthRedirect from '../../hoc/WithAuthRedirect'
 
 

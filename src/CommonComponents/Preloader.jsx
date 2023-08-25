@@ -1,5 +1,7 @@
 import React from 'react'
-import PreloaderPicture from '../../Assets/Images/Reload-1s-200px.svg'
+import PreloaderPicture from '../Assets/Images/Reload-1s-200px.svg'
+
+
 
 const Preloader = (props) => {
     return (
