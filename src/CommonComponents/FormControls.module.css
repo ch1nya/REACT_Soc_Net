@@ -8,3 +8,13 @@
     color: rgb(213, 128, 128);
 
 }
+
+.formSummaryError{
+    border:rgb(197, 44, 44) 1px solid;
+    padding: 5px;
+    color: rgb(199, 53, 53);
+    background-color: rgb(26, 6, 26);
+    width: fit-content;
+    border-radius: 7px;
+    margin:5px
+}
