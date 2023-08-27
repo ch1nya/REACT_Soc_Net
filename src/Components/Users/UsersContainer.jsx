@@ -64,7 +64,6 @@ let withRedirect = WithAuthRedirect(UsersContainer)
 
 //      ↓COMPLEX VERSION 
 export default compose(
-  WithAuthRedirect, 
   connect(mapStateToProps,
   { 
     follow, unfollow, setCurrentPage,
